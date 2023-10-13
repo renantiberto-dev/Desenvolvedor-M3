@@ -7,12 +7,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desenvolvedor M3</title>
   <link rel="stylesheet" href="main.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <header class="header">
+    <div class="content">
+      <a href="#"><img class="logo" src="./img/logo-m3.png" alt="Logo Agência M3"></a>
+      <div class="sacola" data-count="5">
+        <img src="./img/icon-sacola.png" alt="Ícone de Sacola de Compras">
+      </div>
+    </div>
+  </header>
+
+  <section class="wrapper">
+
+    <div class="titulo-wrap">
+      <div class="content">
+        <h2 class="titulo-categoria">Blusas</h2>
+  
+        <div class="custom-select">
+          <select name="ordenar" id="ordenar">
+            <option value="0" disabled selected value>Ordenar por:</option>
+            <option value="1">Mais Recentes</option>
+            <option value="2">Maior Preço</option>
+            <option value="3">Menor Preço</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="filtro-produtos-wrap">
+      <div class="content">
+        <aside>
+          <div class="filtro-cores">
+            <h2 class="titulo-filtro">Cores</h2>
+            <ul>
+              <li>
+                <input id="amarelo" class="checkbox-custom" name="amarelo" type="checkbox" checked>
+                <label for="amarelo" class="checkbox-custom-label">Amarelo</label>
+              </li>
+              <li>
+                <input id="azul" class="checkbox-custom" name="azul" type="checkbox">
+                <label for="azul" class="checkbox-custom-label">Azul</label>
+              </li>
+              <li>
+                <input id="branco" class="checkbox-custom" name="branco" type="checkbox">
+                <label for="branco"class="checkbox-custom-label">Branco</label>
+              </li>
+              <li>
+                <input id="cinza" class="checkbox-custom" name="cinza" type="checkbox">
+                <label for="cinza"class="checkbox-custom-label">Cinza</label>
+              </li>
+              <li>
+                <input id="laranja" class="checkbox-custom" name="laranja" type="checkbox">
+                <label for="laranja"class="checkbox-custom-label">Laranja</label>
+              </li>
+              <li>
+                <a class="ver-todos" href="#">Ver todas a cores <img src="./img/icons-seta.png" alt="Seta"></a>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="filtro-tamanhos">
+            <h2 class="titulo-filtro">Tamanhos</h2>
+            <ul>
+              <li>
+                <input type="radio" id="P" name="P" value="P">
+                <label for="P" class="checkbox-custom-label">
+                  <span>P</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="M" name="M" value="M">
+                <label for="M" class="checkbox-custom-label">
+                  <span>M</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="G" name="G" value="G">
+                <label for="G" class="checkbox-custom-label">
+                  <span>G</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="GG" name="GG" value="GG">
+                <label for="GG" class="checkbox-custom-label">
+                  <span>GG</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="U" name="U" value="U">
+                <label for="U" class="checkbox-custom-label">
+                  <span>U</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="36" name="36" value="36">
+                <label for="36" class="checkbox-custom-label">
+                  <span>36</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="38" name="38" value="38">
+                <label for="38" class="checkbox-custom-label">
+                  <span>38</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="40" name="40" value="40">
+                <label for="40" class="checkbox-custom-label">
+                  <span>40</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="42" name="42" value="42">
+                <label for="42" class="checkbox-custom-label">
+                  <span>42</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="filtro-preco">
+            <h2 class="titulo-filtro">Faixa de Preço</h2>
+            <ul>
+              <li>
+                <input id="0-50" class="checkbox-custom" name="0-50" type="checkbox" checked>
+                <label for="0-50" class="checkbox-custom-label">de R$0 até R$50</label>
+              </li>
+              <li>
+                <input id="51-150" class="checkbox-custom" name="51-150" type="checkbox">
+                <label for="51-150" class="checkbox-custom-label">de R$51 até R$150</label>
+              </li>
+              <li>
+                <input id="151-300" class="checkbox-custom" name="151-300" type="checkbox">
+                <label for="151-300"class="checkbox-custom-label">de R$151 até R$300</label>
+              </li>
+              <li>
+                <input id="301-500" class="checkbox-custom" name="301-500" type="checkbox">
+                <label for="301-500"class="checkbox-custom-label">de R$301 até R$500</label>
+              </li>
+              <li>
+                <input id="500-more" class="checkbox-custom" name="500-more" type="checkbox">
+                <label for="500-more"class="checkbox-custom-label">a partir de R$500</label>
+              </li>
+            </ul>
+          </div>
+        </aside>
+  
+        <main></main>
+      </div>
+    </div>
+  </section>
 
 </body>
-<h1>Desafio m3</h1>
 
 <script src="bundle.js"></script>
 

@@ -1,1 +1,288 @@
 @import "reset";
+@import "variaveis";
+@import "header";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+$preto: #000000;
+$branco: #FFFFFF;
+$cinza1: #00000080;
+$cinza2: #666666;
+$cinza-retagle: #C7C7C7;
+$cinza-font: #333333;
+$primary-color: #00C0EE;
+$font-default: 'Open Sans', sans-serif;
+
+* {
+  font-family: $font-default;
+}
+
+.header {
+  width: 100%;
+  height: 48px;
+  background: $branco;
+  border-bottom: 2px solid $cinza-retagle;
+  
+  display: flex;
+  justify-content: center;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo {
+    width: 119px;
+    height: 30px;
+  }
+
+  .sacola {
+    position: relative;
+    width: 17px;
+    height: 20px;
+    cursor: pointer;
+
+    &::before {
+      content: attr(data-count);
+      background-color: $primary-color;
+      font-size: 10px;
+      font-family: sans-serif;
+      color: $branco;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.7em;
+      min-height: 1.7em;
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+  button {
+    position: relative;
+    
+  }
+
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  .titulo-wrap {
+    margin: 32px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  
+      max-width: 1200px;
+      width: 100%;
+      height: 100%;
+    }
+
+      .titulo-categoria {
+        font-family: $font-default;
+        font-size: 32px;
+        line-height: 44px;
+        font-weight: 400;
+        color: $cinza-font;
+      }
+      
+      .custom-select {
+        #ordenar {
+          width: 142px;
+          height: 42px;
+          border-radius: 0;
+    
+          font-size: 16px;
+          line-height: 22px;
+          padding: 0 5px;
+    
+          option {
+            width: auto;
+            height: 36px;
+          }
+        }
+      }
+  }
+
+  .filtro-produtos-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  
+      max-width: 1200px;
+      width: 100%;
+      height: 100%;
+    }
+
+      aside {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+
+        .filtro-cores,
+        .filtro-tamanhos,
+        .filtro-preco {
+          padding-bottom: 16px;
+          font-family: $font-default;
+
+          .titulo-filtro {
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: 2px;
+            margin: 14px 0;
+          }
+
+          .ver-todos {
+            //font-family: $font-default;
+            font-size: 16px;
+            line-height: 22px;
+            color: $cinza-font;
+          }
+        }
+
+        .filtro-cores,
+        .filtro-preco {
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            li {
+              label {
+                color: $preto;
+              }
+            }
+          }
+
+          .checkbox-custom, .radio-custom {
+            opacity: 0;
+            position: absolute;   
+          }
+          
+          .checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
+              display: inline-block;
+              vertical-align: middle;
+              margin: 0;
+              cursor: pointer;
+          }
+          
+          .checkbox-custom-label, .radio-custom-label {
+              position: relative;
+          }
+          
+          .checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+              content: '';
+              background: #fff;
+              border: 1px solid $cinza1;
+              display: inline-block;
+              vertical-align: middle;
+              width: 16px;
+              height: 16px;
+              padding: 2px;
+              margin-right: 10px;
+              text-align: center;
+          }
+          
+          .checkbox-custom:checked + .checkbox-custom-label:before {
+              background: $primary-color;
+              box-shadow: inset 0px 0px 0px 3px #fff;
+          }
+          
+          .radio-custom + .radio-custom-label:before {
+              border-radius: 50%;
+          }
+          
+          .radio-custom:checked + .radio-custom-label:before {
+              background: #ccc;
+              box-shadow: inset 0px 0px 0px 4px #fff;
+          }      
+        }
+
+        .filtro-tamanhos {
+          ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            
+            li {
+              position: relative;
+              display: inline-block;
+                
+              label {
+                cursor: pointer;
+                color: #9f9f9f;
+                user-select: none;
+                border: 2px solid #e6e6e6;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                -webkit-tap-highlight-color: transparent;
+                padding: 5px;
+                height: 2rem;
+                width: 2rem;
+                overflow: hidden;
+                display: block;
+                text-align: center;
+                //margin: 5px;
+                transition: all 120ms ease-in-out;
+                
+                span {
+                  font-size: 16px;
+                  line-height: 32px;
+                  margin: 0;
+                }
+              }
+          
+              input[type="radio"] {
+                display: none;
+              }
+          
+              input[type="radio"]:checked + label {
+                color: $preto;
+                border: 2px solid $primary-color;
+                background: $branco;
+              }
+              
+              input[type="radio"]:disabled + label {
+                cursor: not-allowed;
+                color: $cinza-font;
+                background: $branco;
+                border: 1px solid $cinza-font;
+              }
+            }
+          }
+
+        }
+      }
+
+      main {
+        width: 80%;
+      }
+  }
+}
