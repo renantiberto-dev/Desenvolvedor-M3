@@ -4,6 +4,7 @@ const serverUrl = "http://localhost:5000/products";
 const productList = document.getElementById('productList');
 const btnFilterMobile = document.querySelector('.filtros-button__mobile');
 const asideFilter = document.querySelector('aside');
+const selectOrdenar = document.getElementById('ordenar');
 const colorCheckboxes = document.querySelectorAll('.filtro-cores input[type="checkbox"]');
 const sizeCheckboxes = document.querySelectorAll('.filtro-tamanhos input[type="checkbox"]');
 const priceCheckboxes = document.querySelectorAll('.filtro-preco input[type="checkbox"]');
@@ -63,28 +64,55 @@ function getSelectedValues(checkboxes: NodeListOf<Element>): string[] {
 }
 
 // Atualizar produtos após filtragem
-function updateProductList() {
+function updateProductList(orderOption: any) {
   const selectedColors = getSelectedValues(colorCheckboxes);
   const selectedSizes = getSelectedValues(sizeCheckboxes);
   const selectedPriceRanges = getSelectedValues(priceCheckboxes);
+  const loadMoreButton = document.getElementById('load-more');
 
   loadProducts((products) => {
     if (productList) {
       productList.innerHTML = '';
-      products.forEach((product: Product) => {
-        const productDiv: HTMLElement = createProductElement(product);
-        productList.appendChild(productDiv);
-      });
-
       const filteredProducts = filterProducts(products, selectedColors, selectedSizes, selectedPriceRanges);
-      productList.innerHTML = '';
-      filteredProducts.forEach((product: Product) => {
-        const productDiv: HTMLElement = createProductElement(product);
-        productList.appendChild(productDiv);
-      });
+
+      if (orderOption === '1') {
+        filteredProducts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      } else if (orderOption === '2') {
+        filteredProducts.sort((a, b) => b.price - a.price);
+      } else if (orderOption === '3') {
+        filteredProducts.sort((a, b) => a.price - b.price);
+      }
+
+      if (filteredProducts.length === 0) {
+        const opsMessage: HTMLElement = document.createElement('li');
+        opsMessage.classList.add('ops-message');
+        opsMessage.innerText = 'Nenhum produto encontrado.';
+        productList.appendChild(opsMessage);
+        loadMoreButton.style.display = 'none';
+      } else {
+        products.forEach((product: Product) => {
+          const productDiv: HTMLElement = createProductElement(product);
+          productList.appendChild(productDiv);
+        });
+
+        productList.innerHTML = '';
+        filteredProducts.forEach((product: Product) => {
+          const productDiv: HTMLElement = createProductElement(product);
+          productList.appendChild(productDiv);
+        });
+        loadMoreButton.style.display = 'block';
+      }
     }
   });
 }
+
+// Adicione um event listener para o elemento select "ordenar".
+selectOrdenar.addEventListener('change', () => {
+  const selectedOption = (selectOrdenar as HTMLInputElement).value;
+  if (selectedOption !== '0') {
+    updateProductList(selectedOption);
+  }
+});
 
 // Criar elemento HTML para produto
 function createProductElement(product: Product): HTMLElement {

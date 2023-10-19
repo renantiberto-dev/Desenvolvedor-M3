@@ -406,6 +406,16 @@ $font-default: 'Open Sans', sans-serif;
               opacity: 1;
             }
 
+            &.ops-message {
+              font-family: $font-default;
+              font-size: 16px;
+              font-weight: 600;
+
+              @media (min-width: 320px) and (max-width: 768px) {
+                max-width: none;
+              }
+            }
+
             .p-photo {
               display: block;
               width: 195px;
