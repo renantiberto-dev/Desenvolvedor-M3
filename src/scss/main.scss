@@ -349,17 +349,17 @@ $font-default: 'Open Sans', sans-serif;
                 }
               }
           
-              input[type="radio"] {
+              input[type="checkbox"] {
                 display: none;
               }
           
-              input[type="radio"]:checked + label {
+              input[type="checkbox"]:checked + label {
                 color: $preto;
                 border: 2px solid $primary-color;
                 background: $branco;
               }
               
-              input[type="radio"]:disabled + label {
+              input[type="checkbox"]:disabled + label {
                 cursor: not-allowed;
                 color: $cinza-font;
                 background: $branco;
