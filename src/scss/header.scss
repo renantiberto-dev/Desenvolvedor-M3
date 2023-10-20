@@ -1,0 +1,66 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 48px;
+  background: $branco;
+  border-bottom: 2px solid $cinza-retagle;
+  
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    height: 64px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      margin: 0 27px;
+    }
+  }
+
+  .logo {
+    width: 119px;
+    height: 30px;
+  }
+
+  .sacola {
+    position: relative;
+    width: 17px;
+    height: 20px;
+    cursor: pointer;
+
+    &::before {
+      content: attr(data-count);
+      background-color: $primary-color;
+      font-size: 10px;
+      font-family: sans-serif;
+      color: $branco;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.7em;
+      min-height: 1.7em;
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+
+  button {
+    position: relative;
+  }
+}
